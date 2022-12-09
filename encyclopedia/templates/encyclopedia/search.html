@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+
+    {% if entries %}
+
+        <h2> Your search for <i>'{{query}}'</i> didn't return a specific match</h2>
+        <br>
+        <h4> Did you mean:</h4>
+        <ul>
+            {% for entry in entries %}
+                <li> <a href="/wiki/{{entry}}"> {{entry}} </a> </li>
+        
+            {% endfor %}
+        </ul>
+    {% else %}
+
+    <h3> Sorry we couldnt find what you were looking for! </h3>
+
+
+    {% endif %}
+
+{% endblock %}

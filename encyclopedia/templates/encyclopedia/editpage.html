@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Page</h1>
+    
+    <form action="/editpage/{{title}}" method="post">
+        {% csrf_token %}
+        <tr>
+            <th><label for="id_title">title:</label></th>        
+            <td>        
+              <input type="text" name="title" value="{{title}}" 
+                required id="id_title" readonly>
+            </td>
+          </tr>
+        {{form}}
+        <input type="submit" value="Update Page">
+    </form>
+
+
+
+
+
+{% endblock %}
